@@ -13,6 +13,7 @@
 		394C119A23E82077009C3E5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 394C119823E82077009C3E5B /* Main.storyboard */; };
 		394C119C23E82078009C3E5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 394C119B23E82078009C3E5B /* Assets.xcassets */; };
 		394C119F23E82078009C3E5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 394C119D23E82078009C3E5B /* LaunchScreen.storyboard */; };
+		39F6588223EAA35100DCD650 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F6588123EAA35100DCD650 /* ScanViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		394C119B23E82078009C3E5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		394C119E23E82078009C3E5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		394C11A023E82078009C3E5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		39F6588123EAA35100DCD650 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				394C119223E82077009C3E5B /* AppDelegate.swift */,
 				394C119423E82077009C3E5B /* SceneDelegate.swift */,
 				394C119623E82077009C3E5B /* ViewController.swift */,
+				39F6588123EAA35100DCD650 /* ScanViewController.swift */,
 				394C119823E82077009C3E5B /* Main.storyboard */,
 				394C119B23E82078009C3E5B /* Assets.xcassets */,
 				394C119D23E82078009C3E5B /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 				394C119723E82077009C3E5B /* ViewController.swift in Sources */,
 				394C119323E82077009C3E5B /* AppDelegate.swift in Sources */,
 				394C119523E82077009C3E5B /* SceneDelegate.swift in Sources */,
+				39F6588223EAA35100DCD650 /* ScanViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
