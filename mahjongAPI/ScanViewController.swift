@@ -9,76 +9,34 @@
 import UIKit
 import AVFoundation
 
-class ScanViewController: UIViewController {
+class ScanViewController: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
+    @IBOutlet weak var imageView: UIImageView!
     
-    var captireSession = AVCaptureSession()
     
-    func setupCaputureSession(){
-        captureSession.sessionPreset = AVCaptureSession.Preset.photo
-    }
-    
-    // カメラデバイスそのものを管理するオブジェクトの作成インカメ使わないしそこの分岐イランかもなぁ
-    // メインカメラの管理オブジェクトの作成
-    var mainCamera: AVCaptureDevice?
-    // インカメの管理オブジェクトの作成
-    var innerCamera: AVCaptureDevice?
-    // 現在使用しているカメラデバイスの管理オブジェクトの作成
-    var currentDevice: AVCaptureDevice?
-
-    // デバイスの設定
-    func setupDevice() {
-        // カメラデバイスのプロパティ設定
-        let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [AVCaptureDevice.DeviceType.builtInWideAngleCamera], mediaType: AVMediaType.video, position: AVCaptureDevice.Position.unspecified)
-        // プロパティの条件を満たしたカメラデバイスの取得
-        let devices = deviceDiscoverySession.devices
-
-        for device in devices {
-            if device.position == AVCaptureDevice.Position.back {
-                mainCamera = device
-            } else if device.position == AVCaptureDevice.Position.front {
-                innerCamera = device
-            }
+    @IBAction func startCamera(_ sender: Any) {
+        
+        let sourceType:UIImagePickerController.SourceType = UIImagePickerController.SourceType.camera
+        
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera){
+            let picker = UIImagePickerController()
+            picker.sourceType = sourceType
+            picker.delegate = self
+            self.present(picker,animated: true)
         }
-        // 起動時のカメラを設定
-        currentDevice = mainCamera
     }
     
     
-    
-    
-    
-    
-    
-    
-    
-    override var shouldAutorotate: Bool {
-           get {
-               return false
-           }
-       }
-
-       // 画面の向きを指定
-       override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-           get {
-               return .portrait
-           }
-       }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func imagePickerController(_ picker: UIImagePickerController,didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
+        let image = info[UIImagePickerController.InfoKey.originalImage]as! UIImage
+        self.imageView.image = image
+        UIImageWriteToSavedPhotosAlbum(image,nil ,nil ,nil )
+        self.dismiss(animated: true)
     }
-    */
 
+    
+    override func viewDidLoad(){
+        super.viewDidLoad()
+    }
+        
 }
